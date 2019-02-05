@@ -1,0 +1,16 @@
+{
+    "name": "elven_scout_ts",
+    "version": "0.0.1",
+    "main": "index.js",
+    "repository": "https://github.com/pa-bishkek/elven_scout_ts",
+    "author": "vlzh",
+    "license": "MIT",
+    "devDependencies": {
+        "tslint": "^5.12.1",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "^3.3.1"
+    },
+    "prettier": {
+        "tabWidth": 4
+    }
+}

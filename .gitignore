@@ -1,0 +1,9 @@
+# tools and os
+.DS_Store
+.idea
+.vscode
+codealike.json
+
+# build results ...
+node_modules
+dist

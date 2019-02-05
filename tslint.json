@@ -1,0 +1,9 @@
+{
+    "defaultSeverity": "error",
+    "extends": ["tslint:recommended", "tslint-config-prettier"],
+    "jsRules": {},
+    "rules": {
+        "variable-name": [true, "ban-keywords", "allow-leading-underscore"]
+    },
+    "rulesDirectory": []
+}
