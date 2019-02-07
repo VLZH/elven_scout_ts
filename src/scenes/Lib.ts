@@ -17,23 +17,15 @@ class LibScene extends Scene {
     }
 
     public render() {
-        if (this.fl.status === "loading") {
-            this.ctx.fillStyle = "#000000";
-            this.ctx.fillRect(
-                0,
-                0,
-                this.ctx.canvas.width,
-                this.ctx.canvas.height
-            );
-            this.ctx.fillStyle = "#ffffff";
-            this.ctx.font = "22px Georgia";
-            this.ctx.fillText(
-                "Loading " + this.fl.loaded + "/" + this.fl.total,
-                50,
-                70
-            );
-            return "lib";
-        }
+        this.ctx.fillStyle = "#000000";
+        this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+        this.ctx.fillStyle = "#ffffff";
+        this.ctx.font = "22px Georgia";
+        this.ctx.fillText(
+            "Loading " + this.fl.loaded + "/" + this.fl.total,
+            50,
+            70
+        );
         const time = new Date();
         if (this.fl.status === "loaded") {
             this.screen.imgs = this.fl.imgs;
@@ -43,6 +35,7 @@ class LibScene extends Scene {
                 return "lib";
             }
         }
+        return "lib";
     }
 }
 
