@@ -7,7 +7,7 @@ class Scene {
         this.ctx = screen.ctx;
         this.screen = screen;
     }
-    public render(): string | void {
+    public render(time?: number): string | void {
         console.error("Scene.render()");
     }
 }

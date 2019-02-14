@@ -19,7 +19,7 @@ class Game {
      * Start loop
      */
     public start(time?: number) {
-        const redirect = this.scenes[this.current_scene].render();
+        const redirect = this.scenes[this.current_scene].render(time);
         if (redirect) {
             this.current_scene = redirect;
         }

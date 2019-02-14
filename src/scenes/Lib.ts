@@ -4,6 +4,7 @@ import FileLoader from "../util/FileLoader";
 
 class LibScene extends Scene {
     public fl: FileLoader;
+    public fl_finished_at: number;
     constructor(screen: GameScreen) {
         super(screen);
         // start loading
@@ -13,10 +14,11 @@ class LibScene extends Scene {
         this.fl.appendImage("sceleton", "/assets/sceleton.png");
         this.fl.appendImage("bg", "/assets/tiles.png");
         this.fl.appendImage("title", "/assets/title.jpg");
+        // this.fl_finished_at = 0;
         this.fl.start();
     }
 
-    public render() {
+    public render(time?: number) {
         this.ctx.fillStyle = "#000000";
         this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         this.ctx.fillStyle = "#ffffff";
@@ -26,10 +28,10 @@ class LibScene extends Scene {
             50,
             70
         );
-        const time = new Date();
         if (this.fl.status === "loaded") {
+            this.fl_finished_at = time;
             this.screen.imgs = this.fl.imgs;
-            if (time.getTime() - this.fl.finished_at.getTime() > 1000) {
+            if (time - this.fl_finished_at > 1000) {
                 return "menu";
             } else {
                 return "lib";
