@@ -28,7 +28,7 @@ class Game {
     /**
      * Stop loop
      */
-    public stop() {}
+    // public stop() {}
 }
 
 export default Game;

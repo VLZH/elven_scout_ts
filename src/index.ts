@@ -1,13 +1,14 @@
 import Game from "./Game";
 import GameMap from "./GameMap";
+import KeyboardController from "./KeyboardController";
 import GameScene from "./scenes/GameScene";
 import LibScene from "./scenes/LibScene";
 import MenuScene from "./scenes/MenuScene";
 import Screen from "./Screen";
 import Tile from "./Tile";
-import KeyboardController from "./KeyboardController";
 
 const screen = new Screen("#canvas");
+
 const game = new Game("lib", screen);
 
 const tiles = [

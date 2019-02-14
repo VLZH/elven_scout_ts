@@ -5,7 +5,7 @@
         "module": "es6",
         "target": "es5",
         "jsx": "react",
-        "allowJs": true,
+        "allowJs": false,
         "sourceMap": true,
         "removeComments": false,
         "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
