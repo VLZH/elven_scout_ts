@@ -29,10 +29,12 @@ class LibScene extends Scene {
             70
         );
         if (this.fl.status === "loaded") {
-            this.fl_finished_at = time;
+            if (!this.fl_finished_at) {
+                this.fl_finished_at = time;
+            }
             this.screen.imgs = this.fl.imgs;
             if (time - this.fl_finished_at > 1000) {
-                return "menu";
+                return "l1";
             } else {
                 return "lib";
             }

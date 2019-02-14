@@ -15,8 +15,8 @@ class MenuScene extends Scene {
         );
 
         this.ctx.fillStyle = "#FFFFFF";
-        this.ctx.font = "22px Arial";
-        this.ctx.fillText("Нажмите пробел", 250, 500);
+        this.ctx.font = "22px Helvetica";
+        this.ctx.fillText("Нажмите пробел", 100, 100);
     }
 }
 
