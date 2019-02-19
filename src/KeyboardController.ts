@@ -29,7 +29,7 @@ class KeyboardController {
             for (const kn in MAPPING) {
                 if (MAPPING[kn].includes(code)) {
                     this[kn] = true;
-                    console.info(`KeyboardController.${kn} = true`);
+                    // console.info(`KeyboardController.${kn} = true`);
                 }
             }
         });
@@ -38,7 +38,7 @@ class KeyboardController {
             for (const kn in MAPPING) {
                 if (MAPPING[kn].includes(code)) {
                     this[kn] = false;
-                    console.info(`KeyboardController.${kn} = false`);
+                    // console.info(`KeyboardController.${kn} = false`);
                 }
             }
         });

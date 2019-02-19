@@ -1,6 +1,7 @@
 import Game from "./Game";
 import GameMap from "./GameMap";
 import KeyboardController from "./KeyboardController";
+import Player from "./Player";
 import GameScene from "./scenes/GameScene";
 import LibScene from "./scenes/LibScene";
 import MenuScene from "./scenes/MenuScene";
@@ -76,6 +77,136 @@ const map1 = new GameMap(
     kbc
 );
 // prettier-ignore-end
+const player = new Player({
+    ctx: screen.ctx,
+    height: 64,
+    kbc,
+    sprites: {
+        alive: {
+            down: [[0, 2]],
+            left: [[0, 1]],
+            right: [[0, 3]],
+            up: [[0, 0]]
+        },
+        dead: {
+            down: [[0, 20], [1, 20], [2, 20], [3, 20], [4, 20], [5, 20]]
+        },
+        fire: {
+            down: [
+                [0, 18],
+                [1, 18],
+                [2, 18],
+                [3, 18],
+                [4, 18],
+                [5, 18],
+                [6, 18],
+                [7, 18],
+                [8, 18],
+                [9, 18],
+                [10, 18],
+                [11, 18],
+                [12, 18]
+            ],
+
+            left: [
+                [0, 17],
+                [1, 17],
+                [2, 17],
+                [3, 17],
+                [4, 17],
+                [5, 17],
+                [6, 17],
+                [7, 17],
+                [8, 17],
+                [9, 17],
+                [10, 17],
+                [11, 17],
+                [12, 17]
+            ],
+            right: [
+                [0, 19],
+                [1, 19],
+                [2, 19],
+                [3, 19],
+                [4, 19],
+                [5, 19],
+                [6, 19],
+                [7, 19],
+                [8, 19],
+                [9, 19],
+                [10, 19],
+                [11, 19],
+                [12, 19]
+            ],
+            up: [
+                [0, 16],
+                [1, 16],
+                [2, 16],
+                [3, 16],
+                [4, 16],
+                [5, 16],
+                [6, 16],
+                [7, 16],
+                [8, 16],
+                [9, 16],
+                [10, 16],
+                [11, 16],
+                [12, 16]
+            ]
+        },
+        walking: {
+            down: [
+                [0, 10],
+                [1, 10],
+                [2, 10],
+                [3, 10],
+                [4, 10],
+                [5, 10],
+                [6, 10],
+                [7, 10],
+                [8, 10]
+            ],
+            left: [
+                [0, 9],
+                [1, 9],
+                [2, 9],
+                [3, 9],
+                [4, 9],
+                [5, 9],
+                [6, 9],
+                [7, 9],
+                [8, 9]
+            ],
+            right: [
+                [0, 11],
+                [1, 11],
+                [2, 11],
+                [3, 11],
+                [4, 11],
+                [5, 11],
+                [6, 11],
+                [7, 11],
+                [8, 11]
+            ],
+            up: [
+                [0, 8],
+                [1, 8],
+                [2, 8],
+                [3, 8],
+                [4, 8],
+                [5, 8],
+                [6, 8],
+                [7, 8],
+                [8, 8]
+            ]
+        }
+    },
+    sprites_image: () => screen.imgs.player,
+    width: 64,
+    x: 30,
+    y: 30
+});
+map1.addCharacter(player);
 
 game.appendScene("lib", new LibScene(screen));
 game.appendScene("menu", new MenuScene(screen));

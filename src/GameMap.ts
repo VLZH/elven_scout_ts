@@ -1,34 +1,33 @@
 import Camera from "./Camera";
+import Character from "./Character";
 import KeyboardController from "./KeyboardController";
+import PhysObject from "./PhysObject";
 import Tile from "./Tile";
 
 type Tiles = Tile[][];
 
 class GameMap {
     public tiles: Tiles;
-    private camera: Camera;
+    //
+    public camera: Camera;
     private kbc: KeyboardController;
+    private objects: PhysObject[];
     constructor(tiles: Tiles, kbc: KeyboardController) {
         this.tiles = tiles;
         this.camera = new Camera(0, 0);
         this.kbc = kbc;
+        this.objects = [];
     }
+
+    public addCharacter(ch: Character) {
+        this.objects.push(ch);
+    }
+
     public render(
         ctx: CanvasRenderingContext2D,
-        imgs: { [key: string]: HTMLImageElement }
+        imgs: { [key: string]: HTMLImageElement },
+        time?: number
     ) {
-        if (this.kbc.left) {
-            this.camera.moveLeft();
-        }
-        if (this.kbc.right) {
-            this.camera.moveRight();
-        }
-        if (this.kbc.up) {
-            this.camera.moveUp();
-        }
-        if (this.kbc.down) {
-            this.camera.moveDown();
-        }
         const start_col = Math.floor(this.camera.x / 64); // pix -> tile
         const start_row = Math.floor(this.camera.y / 64);
         for (let l = start_row; l < start_row + 11; l++) {
@@ -49,6 +48,7 @@ class GameMap {
                 }
             }
         }
+        this.objects.forEach(o => o.render({ time }));
     }
 }
 
